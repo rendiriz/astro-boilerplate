@@ -1,20 +1,12 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import { ThemeToggleButton } from '../components/ThemeToggleButton.jsx'
+import DefaultPageLayout from '$/layouts/default.astro'
 
-let title = 'My Astro Site';
-let description = 'The perfect starter for your perfect blog.';
-let permalink = 'https://example.com/';
+let title = 'Home';
+let description = 'The perfect starter for your perfect website.';
+let permalink = 'https://astro-boilerplate.vercel.app/';
 ---
-<html lang="en">
-<head>
-    <BaseHead title={title} description={description} permalink={permalink} />
-    <link rel="stylesheet" href={Astro.resolve("../assets/global.css")}>
-</head>
-<body class="bg-white dark:bg-black">
-    <main class="container mx-auto px-4">
-        <h1 class="text-black dark:text-white">{title}</h1>
-        <ThemeToggleButton client:load />
-    </main>
-</body>
-</html>
+<DefaultPageLayout content={{ title, description, permalink }}>
+    <div>
+        DefaultPageLayout works!
+    </div>
+</DefaultPageLayout>

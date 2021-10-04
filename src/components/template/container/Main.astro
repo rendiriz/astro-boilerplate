@@ -1,0 +1,19 @@
+---
+import { Navbar } from '../navbar/Navbar.jsx';
+---
+<body class="root">
+  <Navbar client:load />
+  <div class="content">
+    <slot />
+  </div>
+</body>
+
+<style>
+  .root {
+    @apply font-sans antialiased min-h-screen bg-white dark:bg-gray-800 transition-colors;
+  }
+
+  .content {
+    @apply w-full max-w-screen-xl mx-auto px-4 md:px-6 lg:px-8;
+  }
+</style>

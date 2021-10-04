@@ -10,7 +10,11 @@
   },
   "devDependencies": {
     "@astrojs/renderer-react": "^0.2.1",
+    "@astrojs/renderer-svelte": "^0.1.2",
     "astro": "^0.20.8",
     "tailwindcss": "^2.2.16"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.4.1"
   }
 }

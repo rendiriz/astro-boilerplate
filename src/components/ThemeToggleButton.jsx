@@ -15,15 +15,10 @@ export const ThemeToggleButton = () => {
   );
 
   return (
-    <div>
+    <>
       <span onClick={() => setTheme(colorTheme)}>
         {colorTheme === 'light' ? (
-          <svg
-            className="h-6 w-6 text-gray-500"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
+          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -32,12 +27,7 @@ export const ThemeToggleButton = () => {
             />
           </svg>
         ) : (
-          <svg
-            className="h-6 w-6 text-gray-400"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
+          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -47,6 +37,6 @@ export const ThemeToggleButton = () => {
           </svg>
         )}
       </span>
-    </div>
+    </>
   );
 };
