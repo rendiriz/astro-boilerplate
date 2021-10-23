@@ -1,23 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useDarkMode } from '$/hooks/useDarkMode';
 
 export const ThemeToggleButton = () => {
-  const [theme, setTheme] = useState('light');
-  const colorTheme = theme === 'light' ? 'dark' : 'light';
-
-  useEffect(
-    () => {
-      const root = window.document.documentElement;
-      root.classList.remove(colorTheme);
-      root.classList.add(theme);
-    },
-    [theme],
-    colorTheme
-  );
+  const [isDark, setIsDark] = useDarkMode();
 
   return (
     <>
-      <span onClick={() => setTheme(colorTheme)}>
-        {colorTheme === 'light' ? (
+      <span onClick={() => setIsDark(!isDark)}>
+        {isDark ? (
           <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path
               strokeLinecap="round"
