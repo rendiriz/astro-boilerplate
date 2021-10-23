@@ -5,3 +5,5 @@ export const SITE = {
   url: 'https://astro-boilerplate.vercel.app/',
   githubUrl: 'https://github.com/rendiriz/astro-boilerplate/',
 };
+
+export const PAGE_SIZE = 2;

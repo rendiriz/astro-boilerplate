@@ -1,16 +1,16 @@
 ---
 import { Navbar } from '../navbar/Navbar.jsx';
 ---
-<body class="root">
+<body class="root bg-white dark:bg-gray-800">
   <Navbar client:load />
-  <div class="content">
+  <div class="content text-gray-700 dark:text-gray-200">
     <slot />
   </div>
 </body>
 
 <style>
   .root {
-    @apply font-sans antialiased min-h-screen bg-white dark:bg-gray-800 transition-colors;
+    @apply font-sans antialiased min-h-screen transition-colors;
   }
 
   .content {
