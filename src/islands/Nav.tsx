@@ -1,6 +1,7 @@
 import { Disclosure } from '@headlessui/react';
 import cn from 'classnames';
 
+import { site } from '@/lib/site';
 import ThemeSwitcher from '@/islands/ThemeSwitcher';
 
 interface INavItem {
@@ -68,6 +69,7 @@ export default function Nav(props: any) {
                 <a
                   href="/"
                   className="text-xl text-gray-800 no-underline whitespace-nowrap py-2"
+                  aria-label={site.name}
                 >
                   <svg
                     id="logo-35"
