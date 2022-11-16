@@ -1,7 +1,32 @@
 ---
+import { paginate } from '@/lib/paginate';
 import Layout from '@/layouts/Layout.astro';
 import { Image } from '@astrojs/image/components';
 const posts = await Astro.glob('./*.mdx');
+
+const { page } = Astro.params;
+
+const paginateData = (array, page_number, page_size) => {
+  return array.slice(
+    page_number * page_size,
+    page_number * page_size + page_size,
+  );
+};
+
+const limit = 3;
+const skip = (page ? page : 1) * limit - limit;
+const pagination = paginate(posts.length, skip, limit);
+
+let n = [];
+for (
+  let index = pagination.start_index;
+  index <= pagination.end_index;
+  index++
+) {
+  n.push(index);
+}
+
+const paginationPosts = paginateData(posts, skip, n.length);
 ---
 
 <Layout title="Blog" description="Blog Description">
@@ -9,7 +34,7 @@ const posts = await Astro.glob('./*.mdx');
     <h1 class="text-5xl text-gray-800 dark:text-gray-50 mb-8">Blog</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
       {
-        posts.map((post) => (
+        paginationPosts.map((post) => (
           <a href={`/blog/${post.frontmatter.slug}`}>
             <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
               <Image
@@ -31,6 +56,24 @@ const posts = await Astro.glob('./*.mdx');
             </div>
           </a>
         ))
+      }
+    </div>
+    <div class="flex justify-between text-gray-800 dark:text-gray-50 mt-6">
+      {
+        pagination.previous_page >= 1 ? (
+          <a class="hover:underline" href={`/blog/${pagination.previous_page}`}>
+            Previous
+          </a>
+        ) : (
+          <div />
+        )
+      }
+      {
+        pagination.next_page <= pagination.total_pages && (
+          <a class="hover:underline" href={`/blog/${pagination.next_page}`}>
+            Next
+          </a>
+        )
       }
     </div>
   </div>

@@ -13,7 +13,8 @@ const meta = {
   date: publishDate,
 };
 
-const pathname = Astro.url.pathname;
+const path = Astro.url.pathname.split('/');
+const pathname = `/${path[1]}`;
 ---
 
 <!DOCTYPE html>
@@ -46,8 +47,8 @@ const pathname = Astro.url.pathname;
         <slot />
       </div>
     </main>
-    <footer class="mx-auto max-w-7xl px-4">
-      <div class="text-gray-800 dark:text-gray-50">Footer</div>
+    <footer class="mx-auto max-w-7xl px-4 py-6">
+      <div class="text-gray-800 dark:text-gray-50">© Rendi Riz</div>
     </footer>
     <style>
       body {
