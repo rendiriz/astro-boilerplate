@@ -1,0 +1,37 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Image } from '@astrojs/image/components';
+const posts = await Astro.glob('./*.mdx');
+---
+
+<Layout title="Blog" description="Blog Description">
+  <div class="mx-auto max-w-7xl px-4 my-10">
+    <h1 class="text-5xl text-gray-800 dark:text-gray-50 mb-8">Blog</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+      {
+        posts.map((post) => (
+          <a href={`/blog/${post.frontmatter.slug}`}>
+            <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
+              <Image
+                class="rounded-t-md"
+                src={post.frontmatter.image}
+                alt={post.frontmatter.title}
+                aspectRatio="16:9"
+                width={600}
+                height={300}
+              />
+              <div class="p-4">
+                <h5 class="text-xl text-gray-800 dark:text-gray-50 mb-2">
+                  {post.frontmatter.title}
+                </h5>
+                <time class="text-sm text-gray-500 dark:text-gray-300">
+                  {post.frontmatter.publishDate}
+                </time>
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</Layout>

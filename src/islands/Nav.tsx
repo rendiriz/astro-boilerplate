@@ -96,6 +96,11 @@ export default function Nav(props: any) {
                       text="About"
                       pathname={props.pathname}
                     />
+                    <NavItem
+                      href="/blog"
+                      text="Blog"
+                      pathname={props.pathname}
+                    />
                   </div>
                 </div>
               </div>
@@ -152,6 +157,11 @@ export default function Nav(props: any) {
                 <NavItemMobile
                   href="/about"
                   text="About"
+                  pathname={props.pathname}
+                />
+                <NavItemMobile
+                  href="/blog"
+                  text="Blog"
                   pathname={props.pathname}
                 />
               </div>

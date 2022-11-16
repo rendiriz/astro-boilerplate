@@ -1,0 +1,60 @@
+---
+import BaseHead from '@/layouts/BaseHead.astro';
+import Nav from '@/islands/Nav';
+
+const {
+  frontmatter: { title, description, publishDate, image, author },
+} = Astro.props;
+
+const meta = {
+  title,
+  description,
+  image,
+  date: publishDate,
+};
+
+const pathname = Astro.url.pathname;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead meta={meta} />
+  </head>
+  <body>
+    <Nav client:load pathname={pathname} />
+    <main class="mx-auto max-w-3xl px-4 my-10">
+      <div class="mb-8">
+        <h1 class="text-5xl text-gray-800 dark:text-gray-50 mb-4">{title}</h1>
+        <div
+          class="flex flex-col items-start justify-between w-full mt-2 md:flex-row md:items-center"
+        >
+          <div class="flex items-center">
+            <p class="text-sm text-stone-700 dark:text-slate-300">
+              {`${author} / `}
+              {publishDate}
+            </p>
+          </div>
+          <p
+            class="mt-2 text-sm text-stone-600 dark:text-slate-400 min-w-32 md:mt-0"
+          >
+            2 views
+          </p>
+        </div>
+      </div>
+      <div class="max-w-none prose dark:prose-invert">
+        <slot />
+      </div>
+    </main>
+    <footer class="mx-auto max-w-7xl px-4">
+      <div class="text-gray-800 dark:text-gray-50">Footer</div>
+    </footer>
+    <style>
+      body {
+        @apply bg-white dark:bg-gray-900;
+      }
+    </style>
+
+    <script is:inline src="/theme.js"></script>
+  </body>
+</html>
