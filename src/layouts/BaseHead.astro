@@ -1,6 +1,7 @@
 ---
 import { site } from '@/lib/site';
 
+const isProduction = import.meta.env.PUBLIC_ENVIRONMENT === 'production';
 const { meta: customMeta } = Astro.props;
 
 const meta = {
@@ -41,3 +42,24 @@ if (meta.title) {
 <meta name="twitter:description" content={meta.description} />
 <meta name="twitter:image" content={meta.image} />
 {meta.date && <meta property="article:published_time" content={meta.date} />}
+
+<script is:inline src="/theme.js"></script>
+
+{isProduction && (
+  <>
+    <script
+      is:inline
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=G-DTSW3J45R4"
+    ></script>
+    <script is:inline type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-DTSW3J45R4');
+    </script>
+  </>
+)}

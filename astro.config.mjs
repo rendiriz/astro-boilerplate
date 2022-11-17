@@ -4,6 +4,7 @@ import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import image from '@astrojs/image';
+import partytown from '@astrojs/partytown';
 
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
@@ -38,6 +39,9 @@ export default defineConfig({
     }),
     image({
       serviceEntryPoint: '@astrojs/image/sharp',
+    }),
+    partytown({
+      config: { debug: false, forward: ['dataLayer.push'] },
     }),
   ],
 });
