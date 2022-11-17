@@ -3,7 +3,7 @@ import BaseHead from '@/layouts/BaseHead.astro';
 import Nav from '@/islands/Nav';
 
 const {
-  frontmatter: { title, description, publishDate, image, author },
+  frontmatter: { title, description, publishDate, image, author, minutesRead },
 } = Astro.props;
 
 const meta = {
@@ -39,6 +39,8 @@ const pathname = `/${path[1]}`;
           <p
             class="mt-2 text-sm text-stone-600 dark:text-slate-400 min-w-32 md:mt-0"
           >
+            {minutesRead}
+            {` • `}
             2 views
           </p>
         </div>

@@ -11,6 +11,8 @@ import rehypeCodeTitles from 'rehype-code-titles';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrism from 'rehype-prism-plus';
 
+import { remarkReadingTime } from './src/lib/remark-reading-time.mjs';
+
 // https://astro.build/config
 export default defineConfig({
   output: 'server',
@@ -19,7 +21,7 @@ export default defineConfig({
     react(),
     tailwind(),
     mdx({
-      remarkPlugins: [remarkGfm],
+      remarkPlugins: [remarkGfm, remarkReadingTime],
       rehypePlugins: [
         rehypeSlug,
         rehypeCodeTitles,

@@ -20,7 +20,7 @@ function NavItem(props: INavItem) {
       href={props.href}
       className={cn(
         isActive
-          ? 'text-blue-700 dark:text-blue-400'
+          ? 'text-emerald-600 dark:text-emerald-400'
           : 'text-gray-800 dark:text-gray-50',
         'flex space-x-2 font-medium py-4 px-4',
         props.className,
@@ -42,7 +42,7 @@ const NavItemMobile = (props: INavItem) => {
       href={props.href}
       className={cn(
         isActive
-          ? 'bg-blue-50 dark:bg-gray-800 text-blue-700 dark:text-blue-400'
+          ? 'bg-emerald-50 dark:bg-gray-800 text-emerald-600 dark:text-emerald-400'
           : 'text-gray-800 dark:text-gray-50',
         'flex space-x-2 font-medium py-4 px-4',
         props.className,
@@ -80,11 +80,11 @@ export default function Nav(props: any) {
                   >
                     <path
                       d="M16.4992 2H37.5808L22.0816 24.9729H1L16.4992 2Z"
-                      className="fill-blue-700 dark:fill-gray-50"
+                      className="fill-blue-500 dark:fill-gray-50"
                     />
                     <path
                       d="M17.4224 27.102L11.4192 36H33.5008L49 13.0271H32.7024L23.2064 27.102H17.4224Z"
-                      className="fill-blue-900 dark:fill-gray-50"
+                      className="fill-emerald-600 dark:fill-gray-50"
                     />
                   </svg>
                 </a>

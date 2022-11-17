@@ -8,7 +8,17 @@ image: 'https://images.unsplash.com/photo-1550242706-5d052bf31b17?crop=entropy&c
 slug: 'pagination'
 ---
 
+import { Image } from '@astrojs/image/components';
+
 In the olden days, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+
+<Image
+  src={frontmatter.image}
+  alt={frontmatter.title}
+  aspectRatio="16:9"
+  width={1280}
+  height={720}
+/>
 
 [MDX](https://mdxjs.com 'title')
 
@@ -34,8 +44,6 @@ Three asterisks for a thematic break:
 1. decimals and a dot for ordered items
 
 Two **asterisks** for strong.
-
-![Alt Text](https://images.unsplash.com/photo-1550242706-5d052bf31b17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080)
 
 ## Conclusion
 

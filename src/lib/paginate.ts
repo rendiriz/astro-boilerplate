@@ -52,3 +52,14 @@ export const paginate = (total: number, start: number, limit: number) => {
     pages: pages.toString(),
   };
 };
+
+export const paginateData = (
+  array: any,
+  page_number: number,
+  page_size: number,
+) => {
+  return array.slice(
+    page_number * page_size,
+    page_number * page_size + page_size,
+  );
+};

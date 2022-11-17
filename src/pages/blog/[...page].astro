@@ -1,20 +1,14 @@
 ---
-import { paginate } from '@/lib/paginate';
+import { paginate, paginateData } from '@/lib/paginate';
 import Layout from '@/layouts/Layout.astro';
 import { Image } from '@astrojs/image/components';
 const posts = await Astro.glob('./*.mdx');
 
 const { page } = Astro.params;
 
-const paginateData = (array, page_number, page_size) => {
-  return array.slice(
-    page_number * page_size,
-    page_number * page_size + page_size,
-  );
-};
-
+const currentPage: any = page ? page : 1;
 const limit = 3;
-const skip = (page ? page : 1) * limit - limit;
+const skip = currentPage * limit - limit;
 const pagination = paginate(posts.length, skip, limit);
 
 let n = [];
@@ -34,7 +28,7 @@ const paginationPosts = paginateData(posts, skip, n.length);
     <h1 class="text-5xl text-gray-800 dark:text-gray-50 mb-8">Blog</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
       {
-        paginationPosts.map((post) => (
+        paginationPosts.map((post: any) => (
           <a href={`/blog/${post.frontmatter.slug}`}>
             <div class="border border-gray-200 dark:border-gray-700 rounded-lg">
               <Image
