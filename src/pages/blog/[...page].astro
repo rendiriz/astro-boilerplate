@@ -21,6 +21,8 @@ for (
 }
 
 const paginationPosts = paginateData(posts, skip, n.length);
+const isPrev = pagination.previous_page >= 1;
+const isNext = pagination.next_page <= pagination.total_pages;
 ---
 
 <Layout title="Blog" description="Blog Description">
@@ -54,7 +56,7 @@ const paginationPosts = paginateData(posts, skip, n.length);
     </div>
     <div class="flex justify-between text-gray-800 dark:text-gray-50 mt-6">
       {
-        pagination.previous_page >= 1 ? (
+        isPrev ? (
           <a class="hover:underline" href={`/blog/${pagination.previous_page}`}>
             Previous
           </a>
@@ -63,7 +65,7 @@ const paginationPosts = paginateData(posts, skip, n.length);
         )
       }
       {
-        pagination.next_page <= pagination.total_pages && (
+        isNext && (
           <a class="hover:underline" href={`/blog/${pagination.next_page}`}>
             Next
           </a>
