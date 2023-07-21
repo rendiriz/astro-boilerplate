@@ -3,5 +3,18 @@
   "trailingComma": "all",
   "useTabs": false,
   "tabWidth": 2,
-  "printWidth": 80
+  "printWidth": 80,
+  "endOfLine": "lf",
+  "plugins": [
+    "prettier-plugin-astro",
+    "prettier-plugin-tailwindcss"
+  ],
+  "overrides": [
+    {
+      "files": "*.astro",
+      "options": {
+        "parser": "astro"
+      }
+    }
+  ]
 }
