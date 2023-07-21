@@ -3,7 +3,6 @@ import vercel from '@astrojs/vercel/serverless';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
-import image from '@astrojs/image';
 import partytown from '@astrojs/partytown';
 
 import remarkGfm from 'remark-gfm';
@@ -16,6 +15,9 @@ import { remarkReadingTime } from './src/lib/remark-reading-time.mjs';
 
 // https://astro.build/config
 export default defineConfig({
+  experimental: {
+    assets: true
+  }, 
   output: 'server',
   adapter: vercel(),
   integrations: [
@@ -36,9 +38,6 @@ export default defineConfig({
           },
         ],
       ],
-    }),
-    image({
-      serviceEntryPoint: '@astrojs/image/sharp',
     }),
     partytown({
       config: { debug: false, forward: ['dataLayer.push'] },

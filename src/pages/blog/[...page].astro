@@ -1,7 +1,7 @@
 ---
 import { paginate, paginateData } from '@/lib/paginate';
 import Layout from '@/layouts/Layout.astro';
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 const posts = await Astro.glob('./*.mdx');
 
 const { page } = Astro.params;
@@ -37,7 +37,6 @@ const isNext = pagination.next_page <= pagination.total_pages;
                 class="rounded-t-md"
                 src={post.frontmatter.image}
                 alt={post.frontmatter.title}
-                aspectRatio="16:9"
                 width={600}
                 height={300}
               />
